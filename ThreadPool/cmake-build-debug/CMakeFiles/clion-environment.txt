@@ -1,0 +1,4 @@
+ToolSet: 9.0 w64 (local)@D:\编译器\C\cpeditor\mingw64
+Options: 
+
+Options:-DCMAKE_MAKE_PROGRAM=F:/编译器/CLion 2023.3.2/bin/ninja/win/x64/ninja.exe
