@@ -1,1 +1,1 @@
-"F:\编译器\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/编译器/CLion 2023.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S G:\CLion -B G:\CLion\cmake-build-debug
+"F:\编译器\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/编译器/CLion 2023.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S G:\C++\C-\ThreadPool -B G:\C++\C-\ThreadPool\cmake-build-debug
