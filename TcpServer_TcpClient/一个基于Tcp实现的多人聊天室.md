@@ -2,11 +2,11 @@
 
 服务端
 
-![Server](png\Server.png)
+![Server]([png\Server.png](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Server.png))
 
 客户端
 
-![image-20240219145009877](C:\Users\99694\AppData\Roaming\Typora\typora-user-images\image-20240219145009877.png)
+![image-20240219145009877](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Client.png)
 
 功能介绍
 
