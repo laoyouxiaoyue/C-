@@ -2,7 +2,7 @@
 
 服务端
 
-![Server]([png\Server.png](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Server.png))
+![Server](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Server.png)
 
 客户端
 
