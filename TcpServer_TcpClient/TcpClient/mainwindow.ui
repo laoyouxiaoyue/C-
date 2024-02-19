@@ -153,6 +153,57 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="widget_5" native="true">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>380</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QFontComboBox" name="fontComboBox"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="B">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="png.qrc">
+         <normaloff>:/resource/B.png</normaloff>:/resource/B.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="I">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="png.qrc">
+         <normaloff>:/resource/I.png</normaloff>:/resource/I.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="U">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="png.qrc">
+         <normaloff>:/resource/U.png</normaloff>:/resource/U.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -166,6 +217,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="png.qrc"/>
+ </resources>
  <connections/>
 </ui>

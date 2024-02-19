@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../../../QT-work/QQ/img-resource/B.png</file>
+        <file>../../../../QT-work/QQ/img-resource/I.png</file>
+        <file>../../../../QT-work/QQ/img-resource/U.png</file>
+        <file>resource/B.png</file>
+        <file>resource/I.png</file>
+        <file>resource/U.png</file>
+    </qresource>
+</RCC>

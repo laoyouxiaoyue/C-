@@ -2,19 +2,27 @@
 #include "ui_mainwindow.h"
 #include <QDateTime>
 #include <QMessageBox>
+#include <QTextCharFormat>
 #include <QThread>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    fs=new QTextCharFormat();
     ui->pushButton_2->setEnabled(false);
+    for(int i=9;i<=22;i++)
+    {
+        ui->comboBox->addItem(QString::number(i));
+    }
     setWindowTitle("Tim-tcp-客户端测试");
+    cursor = ui->sendMessage->textCursor();
     srand(time(0));
     QString s=QString::number(rand());
     ui->name->setText("游客"+s);
     tcp=new QTcpSocket(this);
-    cursor=QTextCursor(ui->record->document());
+    cursor=QTextCursor(ui->sendMessage->document());
+    cursor.select(QTextCursor::Document);
     connect(tcp,&QTcpSocket::readyRead,[=](){
         QByteArray recvMsg=tcp->readAll();
         QString message=QString(recvMsg);
@@ -53,7 +61,9 @@ MainWindow::MainWindow(QWidget *parent)
         ui->pushButton_2->setEnabled(false);
         return;
     });
-
+    connect(ui->B,&QPushButton::clicked,this,&MainWindow::BIU);
+    connect(ui->I,&QPushButton::clicked,this,&MainWindow::BIU);
+    connect(ui->U,&QPushButton::clicked,this,&MainWindow::BIU);
 }
 
 MainWindow::~MainWindow()
@@ -79,7 +89,7 @@ void MainWindow::on_startButton_clicked()
 
 void MainWindow::on_sendButton_clicked()
 {
-    QString message=ui->sendMessage->toPlainText();
+    QString message=ui->sendMessage->toHtml();
     QString str = QDateTime::currentDateTime().toString("MM-dd hh:mm");
     ui->sendMessage->clear();
     QString title=ui->name->text()+" "+str;
@@ -102,5 +112,45 @@ void MainWindow::on_pushButton_2_clicked()
     ui->name->setReadOnly(false);
     ui->port->setReadOnly(false);
     ui->ip->setReadOnly(false);
+}
+
+void MainWindow::BIU()
+{
+    QPushButton *button = qobject_cast<QPushButton*>(sender());
+    if(button==ui->B)
+    {
+        if(Bflag) button->setStyleSheet(""),Bflag=0,fs->setFontWeight(QFont::Normal);
+        else button->setStyleSheet("background-color:white;"),Bflag=1,fs->setFontWeight(QFont::Bold);
+    }
+    else if(button==ui->I)
+    {
+        if(Iflag) button->setStyleSheet(""),Iflag=0,fs->setFontItalic(false);
+        else button->setStyleSheet("background-color:white;"),Iflag=1,fs->setFontItalic(true);;
+    }
+    else if(button==ui->U)
+    {
+        if(Uflag) button->setStyleSheet(""),Iflag=0,fs->setFontUnderline(false);
+        else button->setStyleSheet("background-color:white;"),Iflag=1,fs->setFontUnderline(true);
+    }
+    cursor.mergeCharFormat(*fs);
+    ui->sendMessage->setTextCursor(cursor);
+}
+void MainWindow::on_fontComboBox_currentFontChanged(const QFont &f)
+{
+
+    fs->setFont(f);
+    ui->sendMessage->setTextCursor(cursor);
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{
+
+}
+void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    int num=arg1.toInt();
+    fs->setFontPointSize(num);
+    cursor.mergeCharFormat(*fs);
+    ui->sendMessage->setTextCursor(cursor);
 }
 

@@ -18,15 +18,25 @@ public:
     ~MainWindow();
     QTextCursor cursor;
 private slots:
+    void BIU();
     void on_startButton_clicked();
-
     void on_sendButton_clicked();
 
     void on_pushButton_2_clicked();
 
+    void on_fontComboBox_currentFontChanged(const QFont &f);
+
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
 private:
     int flag=0;
+    int Bflag=0;
+    int Uflag=0;
+    int Iflag=0;
     Ui::MainWindow *ui;
     QTcpSocket *tcp;
+    QTextCharFormat *fs;
 };
 #endif // MAINWINDOW_H

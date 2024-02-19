@@ -17,7 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
         QString message=ui->user->toPlainText();
         tcp->write(message.toUtf8());
         connect(tcp,&QTcpSocket::readyRead,this,[=](){
-            QString recvMsg=tcp->readAll();
+            QByteArray recvMsg=tcp->readAll();
+            QString Msg=QString(recvMsg);
             qintptr descriptor1 = tcp->socketDescriptor();
             if(!recvMsg.contains('@'))
             {
@@ -33,15 +34,22 @@ MainWindow::MainWindow(QWidget *parent)
                 for(auto [x,y]:index){
                     qintptr descriptor2 = x->socketDescriptor();
                     if(descriptor2!=descriptor1)
-                    x->write(recvMsg.toUtf8());
+                    x->write(Msg.toUtf8());
                 }
-                ui->record->append(recvMsg);
+                QStringList stringList =Msg.split("@");
+                QString name=stringList[0];
+                Msg=stringList[1];
+                ui->record->setTextColor(Qt::blue);
+                ui->record->append(name);
+                ui->record->setTextColor(Qt::black);
+                ui->record->append(Msg);
             }
 
         });
         connect(tcp, &QTcpSocket::disconnected, this, [=](){
             index.erase(tcp);
-            ui->record->append("客户端已经断开了连接...");
+            QString name=index[tcp];
+            ui->record->append(name+"已经断开了连接...");
             tcp->deleteLater();
             for(auto [x,y]:index){
                 qintptr descriptor2 = x->socketDescriptor();
@@ -80,7 +88,11 @@ void MainWindow::on_sendButton_clicked()
     ui->sendEdit->clear();
     QString str = QDateTime::currentDateTime().toString("MM-dd hh:mm");
     QString title="Server "+str+"@"+message;
-    ui->record->append(title);
+    ui->record->setTextColor(Qt::green);
+    ui->record->append("Server "+str);
+    ui->record->setTextColor(Qt::black);
+    ui->record->append(message);
+    //ui->record->append(title);
     for(auto [x,y]:index)
     {
         x->write(title.toUtf8());
