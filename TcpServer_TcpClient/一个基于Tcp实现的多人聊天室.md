@@ -2,14 +2,21 @@
 
 服务端
 
+<<<<<<< HEAD
 ![Server](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Server.png))
+=======
+![Server](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Server.png)
+>>>>>>> 2b99de41133e026839c2fb5a0639d99ef4641b22
 
 客户端
 
-![image-20240219145009877](C:\Users\99694\AppData\Roaming\Typora\typora-user-images\image-20240219145009877.png)
+![image-20240219145009877](https://github.com/laoyouxiaoyue/C-/blob/main/TcpServer_TcpClient/png/Client.png)
 
 功能介绍
 
 - [x] 多人聊天
 - [x] 服务器发送数据
+<<<<<<< HEAD
 - [x] 字体选择(更新)
+=======
+>>>>>>> 2b99de41133e026839c2fb5a0639d99ef4641b22
