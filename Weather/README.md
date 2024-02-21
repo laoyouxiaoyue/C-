@@ -4,4 +4,4 @@
 - [x] 天气模糊搜索
 - [x] 温度变化曲线绘制
 
-[png](https://github.com/laoyouxiaoyue/C-/blob/main/Weather/png/show.png)
+![png](https://github.com/laoyouxiaoyue/C-/blob/main/Weather/png/show.png)
